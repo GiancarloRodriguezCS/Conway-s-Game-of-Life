@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+//Creates main screen for the user to make a board and choose the percent chance of alive and dead cells
 public class GUI implements ActionListener {
     private static JFrame menuFrame;
     private static JPanel menuPanel;
@@ -33,6 +34,7 @@ public class GUI implements ActionListener {
     private static String[] thePresets = {"", "Magical Sword", "Funny Currency"};
     private static String word = "";
 
+    //Creates main JFrame for the user to set default values
     public static void buildFrame(){
         menuFrame = new JFrame("The Game of Life");
         menuFrame.setSize(860,310);
@@ -114,6 +116,7 @@ public class GUI implements ActionListener {
         menuFrame.setVisible(true);
     }
 
+    //Builds a screen allowing the user to kill or bring a cell to life
     public static void buildGod(){
         godFrame = new JFrame("Hello God");
         godFrame.setSize(300,200);
@@ -154,6 +157,7 @@ public class GUI implements ActionListener {
     }
 
 
+    //getters
     public static double getPercent(){
         return decimalChance;
     }
@@ -166,6 +170,8 @@ public class GUI implements ActionListener {
         return numCols;
     }
 
+    //When button is pressed it moves onto the actual game of life board
+    //if a preset is chosen it will display the preset and if not then it will communicate the percent chance chosen
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == inPreset){
