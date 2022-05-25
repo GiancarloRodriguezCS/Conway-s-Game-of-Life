@@ -1,14 +1,17 @@
 import javax.swing.*;
 
+//This class displays the actual Game of life
 public class Overseer {
     private static int genCounter = 1;
     private static String life = "";
     private static String death = "";
 
+    //Constructor calls method from GUI class to display start screen
     public Overseer(){
         GUI.buildFrame();
     }
 
+    //Displays a JOptionPane window which shows the game of life
     public static void display(){
         String notExit = "";
         while (!notExit.equalsIgnoreCase("Exit")) {
@@ -54,6 +57,7 @@ public class Overseer {
         }
     }
 
+    //Getters and setters
     public static String getLife(){return life;}
     public static String getDeath(){return death;}
 
