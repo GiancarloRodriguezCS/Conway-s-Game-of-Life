@@ -1,3 +1,4 @@
+//This class handles killing and birthing cells during generations
 public class GameBoard {
 
     private static boolean[][] board;
@@ -8,6 +9,7 @@ public class GameBoard {
 
     public static void setBoardLength(){board = new boolean[GUI.getNumRows()][GUI.getNumCols()];}
 
+   //Randomly assigns cells to be alive or dead 
     public static void generateValues(){
         percent = GUI.getPercent();
         System.out.println(percent);
@@ -27,6 +29,7 @@ public class GameBoard {
         }
     }
 
+    //Creates a string that displays alive and dead cells
     public static String drawBoard(){
         String MAP = "";
         String alive = "\u25A0";
@@ -46,6 +49,7 @@ public class GameBoard {
         return MAP;
     }
 
+    //Adjusts cell status according to game rules
     public static void elJuegoDeVida(){
         for(int r = 0; r < board.length; r++) {
             for (int c = 0; c < board[0].length; c++) {
@@ -149,6 +153,7 @@ public class GameBoard {
         }
     }
 
+    //getters and setters
     public static int getNumAlive(){
         return numAlive;
     }
@@ -159,9 +164,11 @@ public class GameBoard {
     public static void setNumAlive(){numAlive = 0;}
     public static void setNumDead(){numDead = 0;}
 
+    //These two methods bring a cell to life or kill a cell
     public static void bringLife(int row, int col){board[row][col] = true; numAlive++; numDead--;}
     public static void bringDeath(int row, int col){board[row][col] = false; numAlive--; numDead++;}
 
+    //Creates a preset layout of dead and alive cells based on a coin
     public static void makeCurrency(){
         board = new boolean[25][25];
         for(int r = 0; r < board.length; r++){
@@ -274,6 +281,7 @@ public class GameBoard {
         }
     }
 
+    //Makes a preset layout of dead and alive cells that is in the shape of a penis
     public static void makePenis(){
         board = new boolean[25][25];
         for(int r = 0; r < board.length; r++) {
@@ -350,6 +358,7 @@ public class GameBoard {
         }
     }
 
+    //kills all cells to be reset
     public static void wipeValues(){
         for(int r = 0; r < board.length; r++ ){
             for(int c = 0; c < board[0].length; c++){
